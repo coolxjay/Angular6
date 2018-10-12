@@ -26,9 +26,16 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
+           "styles": [
+              {
+                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+              },
+              {
+                "input": "node_modules/font-awesome/scss/font-awesome.scss"
+              },
               "src/styles.scss"
             ],
+
             "scripts": []
           },
           "configurations": {
@@ -75,9 +82,16 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
-            "styles": [
+           "styles": [
+              {
+                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+              },
+              {
+                "input": "node_modules/font-awesome/scss/font-awesome.scss"
+              },
               "src/styles.scss"
             ],
+
             "scripts": [],
             "assets": [
               "src/favicon.ico",
