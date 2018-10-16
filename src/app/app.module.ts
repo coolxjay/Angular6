@@ -20,6 +20,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     MenuComponent,
     FooterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +67,9 @@ import { FooterComponent } from './footer/footer.component';
   providers: [
 
 	],
+  entryComponents: [
+    LoginComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
