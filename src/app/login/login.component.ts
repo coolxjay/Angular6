@@ -20,6 +20,11 @@ export class LoginComponent implements OnInit {
 		) { }
 
   ngOnInit() {
+  	var credentials = JSON.parse(localStorage.getItem("rememberedCredentials"));
+  	if( credentials ) {
+	  	this.user.username = credentials.username;
+	  	this.user.password = credentials.password;
+	  }
   }
 
   onSubmit() {
@@ -27,6 +32,12 @@ export class LoginComponent implements OnInit {
 		this.authService.logIn(this.user)
 		.subscribe(res => {
 			if(res.success) {
+				if( this.user.remember ) {
+					var credentials = {username: this.user.username, password: this.user.password};
+					localStorage.setItem("rememberedCredentials", JSON.stringify(credentials));
+				} else {
+					localStorage.removeItem("rememberedCredentials");
+				}
 				this.dialogRef.close();
 			}
 			else {
