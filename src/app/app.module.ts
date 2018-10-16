@@ -14,6 +14,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
 import 'hammerjs';
+import { baseURL } from './shared/baseurl';
+import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
+import { AuthService } from './services/auth.service';
+import { AuthInterceptor, UnauthorizedInterceptor } from './services/auth.interceptor';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -65,7 +70,22 @@ import { LoginComponent } from './login/login.component';
 		AppRoutingModule
   ],
   providers: [
-
+    {
+      provide: 'BaseURL', 
+      useValue: baseURL
+    },
+    ProcessHTTPMsgService,
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: UnauthorizedInterceptor,
+      multi: true
+    }
 	],
   entryComponents: [
     LoginComponent
