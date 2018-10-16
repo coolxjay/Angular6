@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
   	if( credentials ) {
 	  	this.user.username = credentials.username;
 	  	this.user.password = credentials.password;
+	  	this.user.remember = true; 
 	  }
   }
 
